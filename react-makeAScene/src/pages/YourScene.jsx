@@ -1,0 +1,186 @@
+import { useState, useEffect } from 'react';
+import '../css/EventListLayouts.css';
+import '../css/YourScene.css';
+import EventCard from '../components/EventCard';
+import EventList from '../components/EventList';
+import Header from '../components/Header';
+import Sidebar from '../components/Sidebar';
+
+function YourScene() {
+    const [events, setEvents] = useState([]);
+    const [activeSetting, setActiveSetting] = useState("Nearby");
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    useEffect(() => {
+    // simulate backend 
+    const fetchedEvents = [
+    {
+      id: 1,
+      title: "Event Title 1",
+      initiativeName: "Initiative A",
+      initiativeImage: "/src/assets/image.png",
+      isFavorite: true,
+      date: "18.05.2026",
+      description: "Description 1",
+      banner: "/src/assets/image.png",
+      layout: "hero"
+    },
+    {
+      id: 2,
+      title: "Event Title 2",
+      initiativeName: "Initiative B",
+      initiativeImage: "/src/assets/image.png",
+      isFavorite: false,
+      date: "19.05.2026",
+      description: "Description 2",
+      banner: "/src/assets/image.png",
+      layout: "compact"
+    },
+    {
+      id: 3,
+      title: "Green Future Workshop",
+      initiativeName: "Eco Initiative",
+      initiativeImage: "/src/assets/image.png",
+      isFavorite: false,
+      date: "20.05.2026",
+      description: "A workshop focused on sustainability and climate action.",
+      banner: "/src/assets/image.png",
+      layout: "split"
+    },
+    {
+      id: 4,
+      title: "Tech Meetup Berlin",
+      initiativeName: "Dev Community",
+      initiativeImage: "/src/assets/image.png",
+      isFavorite: true,
+      date: "22.05.2026",
+      description: "Networking event for developers and tech enthusiasts.",
+      banner: "/src/assets/image.png",
+      layout: "hero"
+    },
+    {
+      id: 5,
+      title: "Art & Culture Night",
+      initiativeName: "Creative Hub",
+      initiativeImage: "/src/assets/image.png",
+      isFavorite: false,
+      date: "25.05.2026",
+      description: "An evening celebrating local artists and performers.",
+      banner: "/src/assets/image.png",
+      layout: "compact"
+    },
+    {
+      id: 6,
+      title: "Startup Pitch Day",
+      initiativeName: "Innovation Lab",
+      initiativeImage: "/src/assets/image.png",
+      isFavorite: false,
+      date: "28.05.2026",
+      description: "Startups present their ideas to investors and mentors.",
+      banner: "/src/assets/image.png",
+      layout: "split"
+    },
+
+    /* ---- duplicates kept as-is but now structured ---- */
+
+    {
+      id: 7,
+      title: "Event Title 1",
+      initiativeName: "Initiative A",
+      initiativeImage: "/src/assets/image.png",
+      isFavorite: true,
+      date: "18.05.2026",
+      description: "Description 1",
+      banner: "/src/assets/image.png",
+      layout: "compact"
+    },
+    {
+      id: 8,
+      title: "Event Title 2",
+      initiativeName: "Initiative B",
+      initiativeImage: "/src/assets/image.png",
+      isFavorite: false,
+      date: "19.05.2026",
+      description: "Description 2",
+      banner: "/src/assets/image.png",
+      layout: "split"
+    },
+    {
+      id: 9,
+      title: "Green Future Workshop",
+      initiativeName: "Eco Initiative",
+      initiativeImage: "/src/assets/image.png",
+      isFavorite: false,
+      date: "20.05.2026",
+      description: "A workshop focused on sustainability and climate action.",
+      banner: "/src/assets/image.png",
+      layout: "hero"
+    },
+    {
+      id: 10,
+      title: "Tech Meetup Berlin",
+      initiativeName: "Dev Community",
+      initiativeImage: "/src/assets/image.png",
+      isFavorite: true,
+      date: "22.05.2026",
+      description: "Networking event for developers and tech enthusiasts.",
+      banner: "/src/assets/image.png",
+      layout: "compact"
+    },
+    {
+      id: 11,
+      title: "Art & Culture Night",
+      initiativeName: "Creative Hub",
+      initiativeImage: "/src/assets/image.png",
+      isFavorite: false,
+      date: "25.05.2026",
+      description: "An evening celebrating local artists and performers.",
+      banner: "/src/assets/image.png",
+      layout: "split"
+    },
+    {
+      id: 12,
+      title: "Startup Pitch Day",
+      initiativeName: "Innovation Lab",
+      initiativeImage: "/src/assets/image.png",
+      isFavorite: false,
+      date: "28.05.2026",
+      description: "Startups present their ideas to investors and mentors.",
+      banner: "/src/assets/image.png",
+      layout: "hero"
+    },
+
+    /* final card */
+    {
+      id: 13,
+      title: "LAST CARD",
+      initiativeName: "Innovation Lab",
+      initiativeImage: "/src/assets/image.png",
+      isFavorite: false,
+      date: "28.05.2026",
+      description: "Startups present their ideas to investors and mentors.",
+      banner: "/src/assets/image.png",
+      layout: "compact"
+    },
+  ];
+
+    setEvents(fetchedEvents);
+    }, []);
+
+    return (
+        <div className="your-scene">
+            <Header 
+                activeSetting={activeSetting} 
+                setActiveSetting={setActiveSetting} 
+                onSidebarClick={() => setIsSidebarOpen(prev => !prev)}/>
+            <Sidebar 
+                isOpen={isSidebarOpen} 
+                onClose={() => setIsSidebarOpen(false)} 
+                initiatives={[{id: 1, name: "Your Iniciative", image: "/src/assets/image.png"}]}
+            />
+            <EventList events={events} />
+        </div>
+    );
+}
+
+export default YourScene;
