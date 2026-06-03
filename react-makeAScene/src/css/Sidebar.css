@@ -5,6 +5,7 @@
   left: 0;
   height: 100%;
   width: 260px;
+  padding: 4px;
 
   background-color: #17172e;
   color: #dedbec;
@@ -32,6 +33,20 @@
 .sidebar.open {
   transform: translateX(0);
 }
+
+.sidebar-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+    background: #3d3d63;
+    border-radius: 999px;
+}
+
 
 .sidebar-title {
   font-size: 20px;

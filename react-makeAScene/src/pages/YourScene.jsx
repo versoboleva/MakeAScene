@@ -5,11 +5,44 @@ import EventCard from '../components/EventCard';
 import EventList from '../components/EventList';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
+import Filterbar from '../components/Filterbar';
 
 function YourScene() {
     const [events, setEvents] = useState([]);
     const [activeSetting, setActiveSetting] = useState("Nearby");
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [isFilterbarOpen, setIsFilterbarOpen] = useState(false);
+
+    const [debugLocation, setDebugLocation] = useState("");
+    const [debugTags, setDebugTags] = useState("");
+
+    const filter = {
+        initiatives: {
+            subscribed: [
+                { name: "Subscribed Initiative", setting: "include" },
+            ],
+            common: [
+                { name: "Common Initiative", setting: "none" },
+            ],
+        },
+        tags: {
+            subscribed: [
+                { name: "Subscribed Tag", setting: "exclude" },
+            ],
+            common: [
+                { name: "Tech", setting: "include" },
+                { name: "Art", setting: "none" },
+            ],
+        },
+        location: {
+            subscribed: [
+                { name: "Berlin", setting: "include" },
+            ],
+        },
+        ageGuides: [
+            { name: "18+", setting: "none" },
+        ],
+    };
 
     useEffect(() => {
     // simulate backend 
@@ -172,12 +205,19 @@ function YourScene() {
             <Header 
                 activeSetting={activeSetting} 
                 setActiveSetting={setActiveSetting} 
-                onSidebarClick={() => setIsSidebarOpen(prev => !prev)}/>
+                onSidebarClick={() => setIsSidebarOpen(prev => !prev)}
+                onFilterbarClick={() => setIsFilterbarOpen(prev => !prev)}/>
             <Sidebar 
                 isOpen={isSidebarOpen} 
                 onClose={() => setIsSidebarOpen(false)} 
                 initiatives={[{id: 1, name: "Your Iniciative", image: "/src/assets/image.png"}]}
             />
+            <Filterbar
+                isOpen={isFilterbarOpen}
+                onClose={() => setIsFilterOpen(false)}
+                filter={filter}
+            />
+
             <EventList events={events} />
         </div>
     );
