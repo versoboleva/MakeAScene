@@ -5,7 +5,7 @@ import FilterIcon from "../assets/filterIcon.jsx";
 import placeholder from '../assets/image.png'
 
 
-const Header = ({ activeSetting, setActiveSetting, onSidebarClick }) => {
+const Header = ({ activeSetting, setActiveSetting, onSidebarClick, onFilterbarClick }) => {
  
   const [isVisible, setIsVisible] = useState(false);
 
@@ -58,17 +58,28 @@ const Header = ({ activeSetting, setActiveSetting, onSidebarClick }) => {
 
             {/* RIGHT GROUP */}
             <div className="right">
+
                 <div className="search">
                     <span className="search-icon">
                         <SearchIcon className="icon" />
                     </span>
-                    <input type="text" placeholder="Search..." />
+
+                    <input
+                        type="text"
+                        placeholder="Search..."
+                    />
                 </div>
-                <div className="filter">
+
+                {/* FILTER BUTTON */}
+                <div
+                    className="filter"
+                    onClick={onFilterbarClick}
+                >
                     <span className="filter-icon">
                         <FilterIcon className="icon" />
                     </span>
                 </div>
+
 
                 <div className="mobile-search-icon">
                     <SearchIcon className="icon"/>

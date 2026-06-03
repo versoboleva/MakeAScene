@@ -1,0 +1,142 @@
+.filterlist {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    background: transparent;
+}
+
+/*FILTER CONTAINER */
+
+.filterbox {
+    display: flex;
+    align-items: center;
+    height: 38px;
+    border-radius: 2px;
+    overflow: hidden;
+    background: #353535;
+    color: white;
+    font-family: sans-serif;
+}
+
+/* LEFT CHECK AREA*/
+
+.check {
+    width: 44px;
+    height: 115%;
+    padding-left: 4px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+
+}
+
+.check svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 3;
+}
+
+/* include */
+.check.active {
+    background: #00b37a;
+    outline: 12px solid #065e42;
+    color: white;
+}
+
+/* exclude */
+.check.deactivated {
+    background: #2a2a2a;
+    color: #666;
+}
+
+/* none */
+.check.default {
+    background: #2a2a2a;
+    color: white;
+}
+
+
+.check::after {
+    content: "";
+    position: absolute;
+    right: -14px;
+    top: 0;
+    width: 18px;
+    height: 100%;
+    background: inherit;
+}
+
+/* NAME */
+
+.name {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 15px;
+    letter-spacing: 0.2px;
+}
+
+.name p {
+    margin: 0;
+    color: #f0f0f0;
+}
+
+/* RIGHT X AREA*/
+
+.x {
+    width: 44px;
+    height: 115%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease;
+
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+
+    outline: 10px solid #444;
+}
+
+.x svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 3;
+}
+
+/* active exclude */
+.x.active {
+    background: #c2185b;
+    outline: 12px solid #790e39;
+    color: white;
+}
+
+/* include */
+.x.deactivated {
+    background: #2a2a2a;
+    color: #666;
+}
+
+/* none */
+.x.default {
+    background: #2a2a2a;
+    color: white;
+}
+
+
+
+/*HOVER */
+
+.filterbox:hover {
+    filter: brightness(1.08);
+    cursor: pointer;
+}
