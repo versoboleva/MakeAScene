@@ -4,7 +4,7 @@ import "../css/Filter.css"
 
 function Filter({ name, setting }) {
     return (
-        <div className="filterbox">
+        <div className={`filterbox ${setting}`}>
             <div
                 className={`check ${
                     setting === "include"

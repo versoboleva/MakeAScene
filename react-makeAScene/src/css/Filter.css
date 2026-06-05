@@ -16,9 +16,20 @@
     height: 38px;
     border-radius: 2px;
     overflow: hidden;
-    background: #353535;
-    color: white;
+    color: var(--color-white);
     font-family: sans-serif;
+}
+
+.filterbox.include {
+    background: var(--filter-include-bg);
+}
+
+.filterbox.exclude {
+    background: var(--filter-exclude-bg);
+}
+
+.filterbox.none {
+    background: var(--filter-default-bg);
 }
 
 /* LEFT CHECK AREA*/
@@ -46,21 +57,21 @@
 
 /* include */
 .check.active {
-    background: #00b37a;
-    outline: 12px solid #065e42;
-    color: white;
+    background: var(--filter-include-check-bg);
+    outline: 12px solid  var(--filter-include-check-border);
+    color: var(--filter-include-check);
 }
 
 /* exclude */
 .check.deactivated {
-    background: #2a2a2a;
-    color: #666;
+    background:  var(--filter-exclude-check-bg);
+    color: var(--filter-exclude-check);
 }
 
 /* none */
 .check.default {
-    background: #2a2a2a;
-    color: white;
+    background: var(--filter-default-check-bg);
+    color: var(--filter-default-check);
 }
 
 
@@ -88,7 +99,7 @@
 
 .name p {
     margin: 0;
-    color: #f0f0f0;
+    color: var(--text);
 }
 
 /* RIGHT X AREA*/
@@ -103,8 +114,6 @@
 
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
-
-    outline: 10px solid #444;
 }
 
 .x svg {
@@ -115,21 +124,21 @@
 
 /* active exclude */
 .x.active {
-    background: #c2185b;
-    outline: 12px solid #790e39;
-    color: white;
+    background: var(--filter-exclude-x-bg);
+    outline: 12px solid var(--filter-exclude-x-border);
+    color: var(--filter-default-x);
 }
 
 /* include */
 .x.deactivated {
-    background: #2a2a2a;
-    color: #666;
+    background: var(--filter-include-x-bg);
+    color: var(--filter-include-x);
 }
 
 /* none */
 .x.default {
-    background: #2a2a2a;
-    color: white;
+    background: var(--filter-default-x-bg);
+    color: var(--filter-default-x);
 }
 
 

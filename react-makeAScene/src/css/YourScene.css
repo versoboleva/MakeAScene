@@ -15,5 +15,5 @@ html, body {
 .your-scene{
     padding-top: 70px;
     width: 100%;
-    background-color: #bac4e5;
+    background-color: var(--bg);
 }

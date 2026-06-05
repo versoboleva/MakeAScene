@@ -72,7 +72,7 @@ function Filterbar({ isOpen, onClose, filter = [] }) {
                         <select
                             className="select-input"
                             value={whenMode}
-                            onChange={(e) => setWhenMode(e.target.value)}
+                            onChange={(e) => {setWhenMode(e.target.value); e.target.blur();}}
                         >
                             <option value="current">
                                 Current / Upcoming
