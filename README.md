@@ -1,8 +1,9 @@
 # Make A Scene
 <small>This is the frontend of the Make A Scene project.</small>
 
-## Contact us
-[Our Discord](https://discord.gg/aMNwjfHUcq)
+## Links
+[Contact us on Discord](https://discord.gg/aMNwjfHUcq)
+[Backend](https://github.com/Chayraaa/MakeASceneBackend)
 
 ## Overview
 
