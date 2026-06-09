@@ -1,9 +1,23 @@
 import React, { useState, useEffect } from "react";
-import FilterList from "./FilterList"
+import FilterList from "./FilterList";
+import Autocomplete from "./Autocomplete";
 import "../css/Filterbar.css";
 
 function Filterbar({ isOpen, onClose, filter = [] }) {
     const [whenMode, setWhenMode] = useState("current");
+    const [customTags, setCustomTags] = useState([]);
+
+    const handleTagSelect = (tag) => {
+        setCustomTags((prev) => {
+
+            if (prev.some(t => t.id === tag.id)) {
+                return prev;
+            }
+
+            return [...prev, tag];
+        });
+    };
+   
     return (
         <>
             {isOpen && (
@@ -146,10 +160,9 @@ function Filterbar({ isOpen, onClose, filter = [] }) {
                             />
                         </FoldableSection>
 
-                        <input
-                            className="text-input"
-                            type="text"
+                        <Autocomplete
                             placeholder="Other tags"
+                            onSelect={handleTagSelect}
                         />
                     </div>
                 </div>
@@ -179,6 +192,7 @@ function FoldableSection({ title, children }) {
         </div>
     );
 }
+
 
 
 export default Filterbar;

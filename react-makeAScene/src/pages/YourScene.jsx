@@ -9,7 +9,7 @@ import Filterbar from '../components/Filterbar';
 
 function YourScene() {
     const [events, setEvents] = useState([]);
-    const [activeSetting, setActiveSetting] = useState("Nearby");
+    const [activeSetting, setActiveSetting] = useState("MyScene");
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isFilterbarOpen, setIsFilterbarOpen] = useState(false);
 

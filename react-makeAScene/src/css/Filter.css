@@ -18,6 +18,7 @@
     overflow: hidden;
     color: var(--color-white);
     font-family: sans-serif;
+    transition: 0.2s ease;
 }
 
 .filterbox.include {
@@ -127,6 +128,7 @@
     background: var(--filter-exclude-x-bg);
     outline: 12px solid var(--filter-exclude-x-border);
     color: var(--filter-default-x);
+    transition: 0.2s ease;
 }
 
 /* include */
